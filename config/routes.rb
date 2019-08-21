@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   # get 'users/new'
   # get 'users/edit'
   devise_for :users
-  root to: 'pages#home'
+  root to: 'users#dashboard'
   resources :users
   resources :lists
   resources :tasks

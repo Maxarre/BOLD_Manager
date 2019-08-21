@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+  def dashboard
+    @lists
+  end
+
   def index
   end
 
