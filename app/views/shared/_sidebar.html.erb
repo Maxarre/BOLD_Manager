@@ -10,7 +10,7 @@
     </div>
   </div>
   <ul>
-    <%= link_to dashboard_path, class:"erase d-flex" do %>
+    <%= link_to users_path, class:"erase d-flex" do %>
       <li class="list-inline <%= "active" if params[:action] == "dashboard" %>"><i class="far fa-calendar-alt"></i> Dashboard</li>
     <% end  %>
     <%= link_to lists_path, class:"erase d-flex" do %>
