@@ -10,14 +10,4 @@ class ApplicationController < ActionController::Base
     # For additional in app/views/devise/registrations/edit.html.erb
     # devise_parameter_sanitizer.permit(:account_update, keys: [:username])
   end
-
-  private
-
-  def layout_by_resource
-    if devise_controller?
-      "static"
-    else
-      "application"
-    end
-  end
 end
