@@ -1,7 +1,7 @@
 class ListsController < ApplicationController
   def index
     @lists = List.all
-    # @list = List.new(params[:list])
+    @list = List.new(params[:list])
   end
 
   def show
@@ -20,19 +20,19 @@ class ListsController < ApplicationController
 
   def edit
     @list = List.find(params[:id])
-    # redirect_to
+    redirect_to dashboard_path
   end
 
   def update
     @list = List.find(params[:id])
     @list.update(params[:list])
-    redirect_to lists_path
+    redirect_to dashboard_path
   end
 
   def destroy
     @list = List.find(params[:id])
     @list.destroy
-    redirect_to lists_path
+    redirect_to dashboard_path
   end
 
   private
