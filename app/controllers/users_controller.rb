@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def dashboard
-    @lists
+    @lists = List.all
   end
 
   def index
@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   def create
     @user = User.find(params[:user])
     @user.save
-    redirect_to
+    redirect_to user_path(@user)
   end
 
   def edit

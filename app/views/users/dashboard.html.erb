@@ -1,1 +1,10 @@
-dashboard.html.erb
+<div class="lists">
+  <h1>Lists</h1>
+  <% @lists.each do |list| %>
+  <li>
+    <%= @list.name %>
+  </li>
+  <% end %>
+  <p><%= link_to "Add new list", new_list_path %></p>
+
+</div>
