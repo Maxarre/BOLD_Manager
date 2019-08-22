@@ -2,7 +2,7 @@
   <h1>Lists</h1>
   <% @lists.each do |list| %>
   <li>
-    <%= @list.name %>
+    <%= list.name %>
     <%= link_to "Remove", method: :delete, data: { confirm: "Etes vous sûr de vouloir la supprimer?"}  %>
   </li>
   <% end %>

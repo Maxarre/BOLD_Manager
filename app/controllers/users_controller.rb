@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def dashboard
-    @lists = List.all
+    @lists = current_user.lists
   end
 
   def index
