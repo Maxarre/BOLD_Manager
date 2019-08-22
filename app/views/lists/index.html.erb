@@ -1,2 +1,8 @@
-<h1>Lists#index</h1>
-<p>Find me in app/views/lists/index.html.erb</p>
+<h1>Lists</h1>
+  <% @lists.each do |list| %>
+  <li>
+    <%= list.name %>
+    <%= link_to "Détails", list_path(list) %>
+    <%= link_to "Supprimer", method: :delete, data: { confirm: "Etes vous sûr de vouloir la supprimer?"}  %>
+  </li>
+  <% end %>

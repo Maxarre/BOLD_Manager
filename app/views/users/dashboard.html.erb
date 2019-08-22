@@ -3,7 +3,8 @@
   <% @lists.each do |list| %>
   <li>
     <%= list.name %>
-    <%= link_to "Remove", method: :delete, data: { confirm: "Etes vous sûr de vouloir la supprimer?"}  %>
+    <%= link_to "Details", list_path(list) %>
+    <%= link_to "Remove", method: :delete, data: { confirm: "Are you sure you want to remove this list?"}  %>
   </li>
   <% end %>
   <p><%= link_to "Add new list", new_list_path %></p>
