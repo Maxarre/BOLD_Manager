@@ -14,8 +14,13 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
-    @task.save
-    redirect_to list_path
+    @list = List.find(params[:list_id])
+    @task.list = @list
+    if @task.save
+      redirect_to list_path(@list)
+    else
+      render 'lists#show'
+    end
   end
 
   def edit
@@ -30,14 +35,15 @@ class TasksController < ApplicationController
   end
 
   def destroy
-    @task = Task.find(params[:id])
-    @list.destroy
-    redirect_to tasks_path
+    list = List.find(params[:id])
+    @task = Task.find(params[:list_id])
+    @task.destroy
+    redirect_to list_path(list)
   end
 
   private
 
   def task_params
-    params.require(:task).permit(:name)
+    params.require(:task).permit(:name, :list_id)
   end
 end
