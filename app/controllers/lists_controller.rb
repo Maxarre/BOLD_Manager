@@ -1,12 +1,13 @@
 class ListsController < ApplicationController
   def index
-    @lists = List.all
+    @lists = current_user.lists
     @list = List.new(params[:list])
   end
 
   def show
     @list = List.find(params[:id])
     @tasks = @list.tasks
+    @task = Task.new
   end
 
   def new
@@ -17,7 +18,11 @@ class ListsController < ApplicationController
     @list = List.new(list_params)
     @list.user = current_user
     @list.save
-    redirect_to dashboard_path
+    if @list.save
+      redirect_to dashboard_path
+    else
+      render 'pages/dashboard'
+    end
   end
 
   def edit
